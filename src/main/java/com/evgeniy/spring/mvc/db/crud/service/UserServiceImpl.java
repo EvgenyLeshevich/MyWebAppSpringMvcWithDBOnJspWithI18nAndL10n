@@ -1,7 +1,6 @@
 package com.evgeniy.spring.mvc.db.crud.service;
 
 import com.evgeniy.spring.mvc.db.crud.dao.DAO;
-import com.evgeniy.spring.mvc.db.crud.dao.UserDaoImpl;
 import com.evgeniy.spring.mvc.db.crud.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +18,12 @@ public class UserServiceImpl implements Services<User, Long> {
     @Transactional
     public void add(User entity) {
         dao.add(entity);
+    }
+
+    @Override
+    @Transactional
+    public void update(User entity) {
+        dao.update(entity);
     }
 
     @Override
