@@ -4,8 +4,7 @@
     <title>Update User</title>
 </head>
 <body>
-<form method="post" action="/users/${user.id}">
-    <input type="hidden" name="_method" value="PATCH"> <%-- Скрытое поле для изменения метода на patch --%>
+<form method="post" action=/users/${user.id}>
     <%-- method - с каким http-методом будет отправляться эта форма --%>
     <%-- action - на какой адрес эта форма будет обращаться, куда она будет передавать данные --%>
     Name: <input type="text" name="firstName" value="${user.firstName}">

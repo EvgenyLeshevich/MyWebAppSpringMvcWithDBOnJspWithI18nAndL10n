@@ -30,7 +30,7 @@ public class UsersController {
     }
 
     @GetMapping("/new")
-    public String newPerson(@ModelAttribute("user") User user) {
+    public String newUser(@ModelAttribute("user") User user) {
         // Возвращаем страницу с формой для заполениня данных нового человека
         return "users/new";
     }
@@ -47,27 +47,21 @@ public class UsersController {
         return "redirect:/users";
     }
 
-    @GetMapping("/delete/{id}")
-    public String deleteStudent(@PathVariable("id") Long id) {
-        userService.deleteById(id);
+    @GetMapping("/{id}/edit")
+    public String edit(Model model, @PathVariable("id") Long id){
+        model.addAttribute("user", userService.searchById(id));
+        return "users/edit";
+    }
+
+    @PostMapping("/{id}")
+    public String update(@ModelAttribute("user")User user){
+        userService.update(user);
         return "redirect:/users";
     }
 
-//    @GetMapping("/{id}/edit")
-//    public String edit(Model model, @PathVariable("id") Long id){
-//        model.addAttribute("user", userService.searchById(id));
-//        return "users/edit";
-//    }
-//
-//    @PatchMapping("/{id}")
-//    public String update(@ModelAttribute("user") User user, @PathVariable("id") Long id){
-//        userService.update(user);
-//        return "redirect:/users";
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public String delete(@PathVariable("id") Long id){
-//        userService.deleteById(id);
-//        return "redirect:/users";
-//    }
+    @GetMapping("/delete/{id}")
+    public String deleteUser(@PathVariable("id") Long id) {
+        userService.deleteById(id);
+        return "redirect:/users";
+    }
 }

@@ -12,11 +12,6 @@
 
 <a href="/users/${user.id}/edit">Edit</a>
 
-<%--<form method="post" action="/users/${user.id}">--%>
-<%--    <input type="hidden" name="_method" value="DELETE">--%>
-<%--    <input type="submit" value="Delete">--%>
-<%--</form>--%>
-
 <form method="get" action="/users/delete/${user.id}">
     <%-- method - с каким http-методом будет отправляться эта форма --%>
     <%-- action - на какой адрес эта форма будет обращаться, куда она будет передавать данные --%>

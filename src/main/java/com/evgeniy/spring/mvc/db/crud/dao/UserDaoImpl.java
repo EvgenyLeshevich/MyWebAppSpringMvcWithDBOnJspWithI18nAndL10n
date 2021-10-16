@@ -4,6 +4,7 @@ import com.evgeniy.spring.mvc.db.crud.models.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,7 +20,7 @@ public class UserDaoImpl implements DAO<User, Long>{
     public void add(User entity) {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
-            session.save(entity);
+            session.saveOrUpdate(entity);
             session.getTransaction().commit();
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -30,6 +31,10 @@ public class UserDaoImpl implements DAO<User, Long>{
     public void update(User entity) {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
+            entity.setFirstName(entity.getFirstName());
+            entity.setLastName(entity.getLastName());
+            entity.setAge(entity.getAge());
+            entity.setEmail(entity.getEmail());
             session.update(entity);
             session.getTransaction().commit();
         } catch (HibernateException e) {
