@@ -1,9 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title><spring:message code="app.title.all"/></title>
+    <title><spring:message code="app.title.home"/></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js">
@@ -30,7 +29,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><spring:message code="app.lang.title"/></a>
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><spring:message code="app.lang.title"/></a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="?lang=ru"><spring:message code="app.lang.russian"/></a></li>
                         <li><a class="dropdown-item" href="?lang=en"><spring:message code="app.lang.english"/></a></li>
@@ -44,14 +43,6 @@
         </div>
     </div>
 </nav>
-
-<c:forEach var="user" items="${users}">
-    <p><a href="/users/${user.id}">${user.firstName} ${user.lastName}</a></p>
-</c:forEach>
-
-<a href="/users/new"><spring:message code="app.page.body.link.create"/></a>
-
-<a class="btn btn-toggle" href="/users/new" role="button"><spring:message code="app.page.body.link.create"/></a>
 
 </body>
 </html>
