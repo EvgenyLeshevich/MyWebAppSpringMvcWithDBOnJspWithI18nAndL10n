@@ -49,9 +49,41 @@
     <p><a href="/users/${user.id}">${user.firstName} ${user.lastName}</a></p>
 </c:forEach>
 
-<a href="/users/new"><spring:message code="app.page.body.link.create"/></a>
+<a class="btn btn-primary" href="/users/new" role="button"><spring:message code="app.page.body.link.create"/></a>
 
-<a class="btn btn-toggle" href="/users/new" role="button"><spring:message code="app.page.body.link.create"/></a>
+<c:forEach var="user" items="${users}">
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row"><a href="/users/${user.id}">${user.id}</a></th>
+        <td>${user.firstName}</td>
+        <td>${user.lastName}</td>
+        <td>${user.age}</td>
+        <td>${user.email}</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+    </tr>
+    </tbody>
+</table>
+</c:forEach>
 
 </body>
 </html>
