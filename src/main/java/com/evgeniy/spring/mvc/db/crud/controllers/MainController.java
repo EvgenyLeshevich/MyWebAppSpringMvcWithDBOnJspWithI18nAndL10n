@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
 
-    @GetMapping
+    @GetMapping("/")
     public String greeting(Model model) {
         model.addAttribute("title", "Home Page");
         return "home";

@@ -16,14 +16,14 @@
 <%--Шапка сайта--%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Evgeniy</a>
+        <a class="navbar-brand" href="/">Evgeniy</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><spring:message code="app.title.home"/></a>
+                    <a class="nav-link active" aria-current="page" href="/"><spring:message code="app.title.home"/></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/users"><spring:message code="app.title.all"/></a>
@@ -45,45 +45,29 @@
     </div>
 </nav>
 
-<c:forEach var="user" items="${users}">
-    <p><a href="/users/${user.id}">${user.firstName} ${user.lastName}</a></p>
-</c:forEach>
-
-<a class="btn btn-primary" href="/users/new" role="button"><spring:message code="app.page.body.link.create"/></a>
-
-<c:forEach var="user" items="${users}">
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">Id</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Age</th>
-        <th scope="col">Email</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row"><a href="/users/${user.id}">${user.id}</a></th>
-        <td>${user.firstName}</td>
-        <td>${user.lastName}</td>
-        <td>${user.age}</td>
-        <td>${user.email}</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-    </tr>
-    </tbody>
-</table>
-</c:forEach>
+<div class="panel-body">
+    <div class="col-md-offset-1 col-md-10">
+    <table class="table caption-top text-center">
+        <caption><a class="btn btn-secondary btn-sm" href="/users/new" role="button"><spring:message code="app.page.body.link.create"/></a>  | <spring:message code="app.page.body.listOfUsers"/></caption>
+        <tr>
+            <th scope="col"><spring:message code="app.page.body.id"/></th>
+            <th scope="col"><spring:message code="app.page.body.firstName"/></th>
+            <th scope="col"><spring:message code="app.page.body.lastName"/></th>
+            <th scope="col"><spring:message code="app.page.body.age"/></th>
+            <th scope="col"><spring:message code="app.page.body.email"/></th>
+        </tr>
+        <c:forEach var="user" items="${users}">
+            <tr>
+                <th scope="row"><a href="/users/${user.id}">${user.id}</a></th>
+                <td>${user.firstName}</td>
+                <td>${user.lastName}</td>
+                <td>${user.age}</td>
+                <td>${user.email}</td>
+            </tr>
+        </c:forEach>
+    </table>
+    </div>
+</div>
 
 </body>
 </html>
