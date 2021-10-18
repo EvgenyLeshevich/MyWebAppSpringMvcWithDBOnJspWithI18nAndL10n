@@ -26,7 +26,7 @@ import java.util.Locale;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.evgeniy.spring.mvc.db.crud")
-public class WebConfig implements WebMvcConfigurer {
+public class WebConfig implements WebMvcConfigurer{
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver bean = new InternalResourceViewResolver();
